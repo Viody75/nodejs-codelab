@@ -1,24 +1,20 @@
 var express = require('express');
 var router = express.Router();
-var dbConn = require('../lib/db');
+
 var localDbConn = require('../lib/localhost_db');
 
+var booksApiController = require('../controllers/books_api_controller');
+
 // get books data
-router.get('/getbooks', function (req, res) {
-    console.log('Hit local API : /books');
+router.get('/getbooks', booksApiController.getbooks);
 
-    localDbConn.query('SELECT * FROM books ORDER BY id desc', function (err, rows) {
+// add a new book
+router.post('/addbook', booksApiController.addbook);
 
-        if (err) {
-            req.flash('error', err);
-            console.log(err);
-        } else {
+// update a book
+router.put('/updatebook', booksApiController.updatebook);
 
-            res.json(rows);
-            res.end;
-
-        }
-    });
-});
+// delete a book
+router.post('/deletebook', booksApiController.deletebook);
 
 module.exports = router;
