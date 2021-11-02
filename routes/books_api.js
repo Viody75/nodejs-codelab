@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
-var localDbConn = require('../lib/localhost_db');
-
+const authUser = require("../middlewares/auth_users");
 var booksApiController = require('../controllers/books_api_controller');
 
 // get books data
 router.get('/getbooks', booksApiController.getbooks);
+
+router.get('/getbooks2', authUser, booksApiController.getbooks);
 
 // add a new book
 router.post('/addbook', booksApiController.addbook);

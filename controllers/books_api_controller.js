@@ -1,5 +1,5 @@
 var localDbConn = require('../lib/localhost_db');
-var apiControls = require('../lib/api_controls')
+var apiControls = require('../lib/api_controls');
 
 exports.getbooks = function (req, res) {
     console.log('Hit local API from controller : /books2');
