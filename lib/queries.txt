@@ -24,7 +24,6 @@ ALTER TABLE `books` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 CREATE TABLE inventories (
   id int(11) NOT NULL AUTO_INCREMENT,
 	user_id INT COLLATE utf8mb4_unicode_ci NOT NULL,
-	username varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   inv_name varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   inv_qty INT COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
