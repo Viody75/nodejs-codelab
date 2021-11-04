@@ -74,6 +74,7 @@ exports.login = function (req, res, next) {
                         });
                     }
                     if (bResult) {
+                        console.log(`saving { id : ${result[0].id}, username : ${result[0].name}, email : ${result[0].email}}`);
                         const token = jwt.sign({ id: result[0].id }, 'the-super-strong-secrect', { expiresIn: '1h' });
                         db.query(
                             `UPDATE users SET last_login = now() WHERE id = '${result[0].id}'`

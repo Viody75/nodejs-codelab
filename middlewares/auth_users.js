@@ -14,7 +14,7 @@ const verifyToken = (req, res, next) => {
         const theToken = req.headers.authorization.split(' ')[1];
         const decoded = jwt.verify(theToken, 'the-super-strong-secrect');
         req.user = decoded;
-        console.log(req.userjjjjj);
+        console.log(req.user);
     } catch (error) {
         return res.status(401).send("Invalid Token");
     }
