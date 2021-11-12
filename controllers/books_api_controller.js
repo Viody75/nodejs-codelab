@@ -7,11 +7,10 @@ exports.getbooks = function (req, res) {
     localDbConn.query('SELECT * FROM books ORDER BY id desc', function (err, rows) {
 
         if (err) {
-            req.flash('error', err);
+            // req.flash('error', err);
             console.log(err);
         } else {
             apiControls.success(rows, res)
-
         }
     });
 }
